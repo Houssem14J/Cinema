@@ -43,10 +43,10 @@ public class Evenement implements Serializable{
 	public Evenement() {
 	
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNom() {
@@ -83,7 +83,7 @@ public class Evenement implements Serializable{
 	@ManyToOne
 	private Catégories catégorie;
 	
-	@OneToMany(mappedBy="event",fetch = FetchType.EAGER, cascade = CascadeType.PERSIST )
+	@OneToMany(mappedBy="event", cascade = CascadeType.PERSIST )
 	private List<Genre> genres = new ArrayList<Genre>();
 	
 	

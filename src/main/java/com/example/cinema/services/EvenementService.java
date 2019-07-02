@@ -4,20 +4,26 @@ import java.util.List;
 
 import com.example.cinema.entities.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.cinema.repositories.EvenementRepository;
-@Service
+@Service("es")
 public class EvenementService implements IEvenementService{
 	
+	@Autowired
 	public EvenementRepository er;
+	
+	@Override
 	public List<Evenement> findAll()
 	{
-		List<Evenement> events = (List<Evenement>)er.findAll();
-		return events;
+		
+		return er.findAll();
 	}
 	
-	public Evenement getEventId(int id ) {
+	
+	@Override
+	public Evenement getEventId(Integer id ) {
 		return er.getOne(id);
 	}
 	
