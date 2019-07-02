@@ -1,10 +1,12 @@
-package services;
+package com.example.cinema.services;
 
 import java.util.List;
 
-import entities.Genre;
-import repositories.GenreRepository;
+import com.example.cinema.entities.*;
+
 import org.springframework.stereotype.Service;
+
+import com.example.cinema.repositories.GenreRepository;
 @Service
 public class GenreService implements IGenreService{
 

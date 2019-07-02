@@ -1,10 +1,12 @@
-package services;
+package com.example.cinema.services;
 
 import java.util.List;
 
-import entities.Evenement;
-import repositories.EvenementRepository;
+import com.example.cinema.entities.*;
+
 import org.springframework.stereotype.Service;
+
+import com.example.cinema.repositories.EvenementRepository;
 @Service
 public class EvenementService implements IEvenementService{
 	

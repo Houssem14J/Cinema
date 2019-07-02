@@ -1,10 +1,12 @@
-package services;
+package com.example.cinema.services;
 
 
 
-import entities.Catégories;
-import repositories.CategorieRepository;
+import com.example.cinema.entities.*;
+
 import org.springframework.stereotype.Service;
+
+import com.example.cinema.repositories.CategorieRepository;
 @Service
 public class CategoriesService implements ICategoriesService{
 	

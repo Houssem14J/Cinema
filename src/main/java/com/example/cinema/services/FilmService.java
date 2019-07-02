@@ -1,10 +1,11 @@
-package services;
+package com.example.cinema.services;
 
 import java.util.List;
 
-import entities.Film;
-import repositories.FilmRepository;
+import com.example.cinema.entities.*;
 import org.springframework.stereotype.Service;
+
+import com.example.cinema.repositories.FilmRepository;
 @Service
 public class FilmService implements IFilmServices{
 

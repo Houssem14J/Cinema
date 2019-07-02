@@ -1,8 +1,8 @@
-package services;
+package com.example.cinema.services;
 
 import java.util.List;
 
-import entities.Theatre;
+import com.example.cinema.entities.*;
 
 public interface ITheatreService {
 

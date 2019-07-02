@@ -1,10 +1,19 @@
-package entities;
+package com.example.cinema.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Film extends Evenement {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private int id;
+@Entity
+
+public class Film extends Evenement implements Serializable {
+
+	
+	
 	private String libellé;
 	
 	public Film() {
@@ -20,18 +29,11 @@ public class Film extends Evenement {
 	public Film(int id, String nom, Date dateSortie, String description, double note, String photo, int id2,
 			String libellé) {
 		super(id, nom, dateSortie, description, note, photo);
-		id = id2;
+
 		this.libellé = libellé;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public String getLibellé() {
 		return libellé;
 	}

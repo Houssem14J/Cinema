@@ -1,10 +1,12 @@
-package services;
+package com.example.cinema.services;
 
 import java.util.List;
 
-import entities.Theatre;
-import repositories.TheatreRepository;
+import com.example.cinema.entities.*;
+
 import org.springframework.stereotype.Service;
+
+import com.example.cinema.repositories.TheatreRepository;
 @Service
 public class TheatreService implements ITheatreService{
 

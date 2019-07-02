@@ -1,22 +1,29 @@
-package entities;
+package com.example.cinema.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name="Evenement")
 public class Evenement implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	
 	private String nom;
@@ -76,7 +83,7 @@ public class Evenement implements Serializable{
 	@ManyToOne
 	private Catégories catégorie;
 	
-	@OneToMany
+	@OneToMany(mappedBy="event",fetch = FetchType.EAGER, cascade = CascadeType.PERSIST )
 	private List<Genre> genres = new ArrayList<Genre>();
 	
 	

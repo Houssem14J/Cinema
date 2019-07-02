@@ -1,6 +1,6 @@
-package services;
+package com.example.cinema.services;
 
-import entities.Catégories;
+import com.example.cinema.entities.*;
 
 public interface ICategoriesService {
 	public Catégories addCategorie(Catégories c);

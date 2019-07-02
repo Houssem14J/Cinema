@@ -1,15 +1,21 @@
-package entities;
+package com.example.cinema.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+@Entity
 public class Catégories implements Serializable {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String description;
 	private int prix ;
@@ -43,7 +49,7 @@ public class Catégories implements Serializable {
 	}
 	
 	
-	@OneToMany(mappedBy="categories",fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy="catégorie", cascade = CascadeType.PERSIST)
 	private List<Evenement> events = new ArrayList<>();
 	
 	
