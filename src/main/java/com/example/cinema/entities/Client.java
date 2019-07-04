@@ -35,6 +35,7 @@ public class Client implements Serializable {
 	private String profession;
 	private Date date_naissance;
 	private String password;
+	private String username;
 	
 	
 	@OneToMany(mappedBy="client", fetch=FetchType.EAGER,cascade=CascadeType.ALL)
@@ -44,7 +45,7 @@ public class Client implements Serializable {
 	public Client() {}
 
 	public Client(Integer id, Integer num, String nom, String prenom, String adresse, String email, String photo,
-			String profession, Date date_naissance, String password, List<ReservationTicket> reservationticket) {
+			String profession, Date date_naissance, String password, String username,List<ReservationTicket> reservationticket) {
 		super();
 		Id = id;
 		this.num = num;
@@ -56,6 +57,7 @@ public class Client implements Serializable {
 		this.profession = profession;
 		this.date_naissance = date_naissance;
 		this.password = password;
+		this.username=username;
 		this.reservationticket = reservationticket;
 	}
 
@@ -137,6 +139,15 @@ public class Client implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public List<ReservationTicket> getReservationticket() {
