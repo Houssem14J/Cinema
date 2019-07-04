@@ -9,7 +9,6 @@ import com.example.cinema.entities.*;
 @org.springframework.stereotype.Repository
 public interface CategorieRepository extends Repository<Catégories, Integer>, JpaRepository<Catégories, Integer> {
 
-	public Catégories findCatégoriesByDescription(String descirption);
-	public List<Catégories> findAll();
+	//public Catégories findCatégoriesByDescription(String descirption);
 
 }
