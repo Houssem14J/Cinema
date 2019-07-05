@@ -13,6 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -40,14 +43,22 @@ public class Evenement implements Serializable{
 	@ManyToOne
 	private Catégories catégorie;
 	
-	@OneToMany(mappedBy="event", cascade = CascadeType.PERSIST )
-	private List<Genre> genres = new ArrayList<Genre>();
+	
 	
 	@OneToMany(mappedBy="evenements", cascade = CascadeType.PERSIST )
 	private List<ReservationTicket> reservationticket = new ArrayList<ReservationTicket>();
 	
 	@OneToMany(mappedBy="evenement", cascade = CascadeType.PERSIST )
 	private List<SalleEvent> salleevent = new ArrayList<SalleEvent>();
+	
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+                })
+	@JoinTable(name="eventgenre",joinColumns = { @JoinColumn(name = "evenement_id") },
+            inverseJoinColumns = { @JoinColumn(name = "genre_id") })
+	private List<Genre> genre = new ArrayList<Genre>();
 
 	public Evenement(int id, String nom, Date dateSortie, String description, double note, String photo, String type,
 			Integer duree, String editeur, Catégories catégorie, List<Genre> genres,
@@ -63,7 +74,7 @@ public class Evenement implements Serializable{
 		this.duree = duree;
 		this.editeur = editeur;
 		this.catégorie = catégorie;
-		this.genres = genres;
+		this.genre=genres;
 		this.reservationticket = reservationticket;
 		this.salleevent = salleevent;
 	}
@@ -148,12 +159,13 @@ public class Evenement implements Serializable{
 		this.catégorie = catégorie;
 	}
 
-	public List<Genre> getGenres() {
-		return genres;
+	
+	public List<Genre> getGenre() {
+		return genre;
 	}
 
-	public void setGenres(List<Genre> genres) {
-		this.genres = genres;
+	public void setGenre(List<Genre> genre) {
+		this.genre = genre;
 	}
 
 	public List<ReservationTicket> getReservationticket() {

@@ -8,6 +8,6 @@ import com.example.cinema.entities.*;
 @org.springframework.stereotype.Repository
 public interface GenreRepository extends Repository<Genre, Integer >, JpaRepository<Genre, Integer>{
 
-	public Genre findGenreById(int id);
+	
 
 }
